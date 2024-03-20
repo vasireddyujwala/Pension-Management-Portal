@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: processpension-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ProcessPension
+  template:
+    metadata:
+      labels:
+        app: ProcessPension
+    spec:
+      containers:
+      - name: processpension
+        image:  pensionmanagement.azurecr.io/processpension:latest
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+      - name: processpensionsn
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: processpension
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: ProcessPension

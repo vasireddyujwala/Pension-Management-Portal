@@ -1,0 +1,29 @@
+﻿@model PensionDetail
+@{
+    ViewData["Title"] = "PensionervaluesDisplayed";
+}
+<style>
+    body {
+        background: url(https://th.bing.com/th/id/R.e910cc9dcdfa39f0fc7ac4c5768ef139?rik=AOxL%2f0Rljywotg&riu=http%3a%2f%2fwww.saga.co.uk%2fcontentlibrary%2fsaga%2fpublishing%2fverticals%2fmoney%2fretirement%2fpensions%2fsimple-guide-to-pension-drawdown.jpg&ehk=4kGO9Nw6OH5N7XNdyAB6czMiyopyF8obyXepYQukfBs%3d&risl=&pid=ImgRaw&r=0);
+    }
+</style>
+
+<div class="container p-3 rounded bg-secondary text-dark" style="border-radius : 50px; text-align : center;">
+    <h1>Pension Amount is @Model.PensionAmount</h1>
+</div>
+<hr />
+<div class="container p-3 rounded bg-secondary text-dark" style="border-radius : 50px; text-align : center;">
+    <h1>Serial Number is @Model.DetailId</h1>
+</div>
+<hr />
+<div class="container p-3 rounded bg-secondary text-dark" style="border-radius : 50px; text-align : center;">
+    <h1>Status Code is @Model.Status</h1>
+</div>
+<hr />
+<div>
+    <a asp-action="Logout"><h3>Logout</h3></a>
+    @*<button type="button" class="btn btn-outline-success">Serial Number is @Model.DetailId</button>*@
+</div>
+<hr />
+
+

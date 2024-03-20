@@ -1,0 +1,66 @@
+﻿@model Pension_Management_Portal.Models.Login
+
+@{ ViewData["Title"] = "Login"; }
+<head>
+    <style>
+
+        body {
+            background: url(https://cutewallpaper.org/25/animated-white-wallpaper-gif/abstract-white-background-hd-motion-graphics-background-loop-white-video-royalty-free-footages-on-make-a-gif.gif);
+            background-size: cover;
+            .form-login{
+            background: rgba(236,240,241,.90);
+            border-radius: 10px;
+            max-width: 450px;
+            margin: auto;
+            padding: 20px;
+            width: 100%;
+        }
+       h1{
+           color:black;
+           font-size:50px;
+           background:content-box;
+           
+       }
+    </style>
+
+</head>
+
+
+
+    <h1>Login</h1>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Login" class="form-login  ">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Username" class="control-label"></label>
+                    <input asp-for="Username" class="form-control mb-3" required />
+                    <span asp-validation-for="Username" class="text-dark"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password" class="control-label"></label>
+                    <input type="password" asp-for="Password" class="form-control mb-3" />
+                    <span asp-validation-for="Password" class="text-dark"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Login" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    @if (ViewBag.Message != null)
+    {
+<script type="text/javascript">
+
+            window.onload = function () {
+                alert("@ViewBag.Message");
+                window.location.href = "@Url.Action("Login", "Pension")";
+            };
+</script>}
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

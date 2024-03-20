@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\AuthorizationAPI\\Controllers",
+    "\\AuthorizationAPI\\Model",
+    "\\Pension-Management-Portal",
+    "\\Pension-Management-Portal\\Controllers",
+    "\\Pension-Management-Portal\\Migrations",
+    "\\Process-Pension-Microservice-master-master\\Controllers"
+  ],
+  "SelectedNode": "\\Pension-Management-Portal\\appsettings.json",
+  "PreviewInSolutionExplorer": false
+}

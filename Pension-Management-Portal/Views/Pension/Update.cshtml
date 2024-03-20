@@ -1,0 +1,30 @@
+﻿@model Pension_Management_Portal.Models.PensionerDetail
+
+@{ ViewData["Title"] = "Update"; }
+
+<h1>Update Pensioner Details</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Update">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="AadharNumber" class="control-label"></label>
+                <input asp-for="AadharNumber" class="form-control" />
+                <span asp-validation-for="AadharNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Proceed To Update" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+@if (ViewBag.errors1 != null)
+{
+<script type="text/javascript">
+
+        window.onload = function () {
+            alert("@ViewBag.errors1");
+        }
+</script>
+}

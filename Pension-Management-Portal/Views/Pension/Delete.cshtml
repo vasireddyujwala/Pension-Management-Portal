@@ -1,0 +1,63 @@
+﻿@model Pension_Management_Portal.Models.PensionerDetail
+
+@{ ViewData["Title"] = "Delete"; }
+<style>
+    body {
+        height: 100%
+    }
+
+    body {
+        background: url(https://www.businessinsider.in/thumb.cms?msid=92036007&width=1200&height=900);
+        background-size: cover;
+    }
+
+    .form-login {
+        background: rgba(236,240,241,.90);
+        border-radius: 10px;
+        max-width: 450px;
+        margin: auto;
+        padding: 20px;
+        width: 100%;
+    }
+
+    h1 {
+        color: black;
+        font-size: 50px;
+        background: content-box;
+    }
+</style>
+<h1>Delete Pensioner Details</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Delete" class="form-login">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="AadharNumber" class="control-label"></label>
+                <input asp-for="AadharNumber" class="form-control" />
+                <span asp-validation-for="AadharNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Delete" class="btn btn-outline-danger" />
+            </div>
+        </form>
+    </div>
+</div>
+@if (ViewBag.errors != null)
+{
+<script type="text/javascript">
+
+        window.onload = function () {
+            alert("@ViewBag.errors");
+            window.location.href = "@Url.Action("Delete", "Pension")";
+        }
+</script>}
+@if (ViewBag.msg2 != null)
+{
+<script type="text/javascript">
+
+        window.onload = function () {
+            alert("@ViewBag.msg2");
+            window.location.href = "@Url.Action("Login", "Pension")";
+        }
+</script>}

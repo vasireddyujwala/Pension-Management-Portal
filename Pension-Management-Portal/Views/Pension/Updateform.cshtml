@@ -1,0 +1,95 @@
+﻿@model Pension_Management_Portal.Models.Register
+
+
+@{ ViewData["Title"] = "Updateform"; }
+
+<h1>Update Form</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Updateform">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dateofbirth" class="control-label"></label>
+                <input asp-for="Dateofbirth" class="form-control" />
+                <span asp-validation-for="Dateofbirth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PAN" class="control-label"></label>
+                <input asp-for="PAN" class="form-control" />
+                <span asp-validation-for="PAN" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AadharNumber" class="control-label"></label>
+                <input asp-for="AadharNumber" class="form-control" />
+                <span asp-validation-for="AadharNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SalaryEarned" class="control-label"></label>
+                <input asp-for="SalaryEarned" class="form-control" />
+                <span asp-validation-for="SalaryEarned" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Allowances" class="control-label"></label>
+                <input asp-for="Allowances" class="form-control" />
+                <span asp-validation-for="Allowances" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PensionType" class="control-label"></label>
+                @Html.DropDownList("PensionType", new SelectList(Enum.GetValues(typeof(Pension_Management_Portal.Models.PensionTypeValue))),
+                                                              "Select Type", new { @class = "form-control" })
+                <span asp-validation-for="PensionType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BankName" class="control-label"></label>
+                <input asp-for="BankName" class="form-control" />
+                <span asp-validation-for="BankName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AccountNumber" class="control-label"></label>
+                <input asp-for="AccountNumber" class="form-control" />
+                <span asp-validation-for="AccountNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BankType" class="control-label"></label>
+                @Html.DropDownList("BankType", new SelectList(Enum.GetValues(typeof(Pension_Management_Portal.Models.BankType))),
+                                                              "Select Type", new { @class = "form-control" })
+                <span asp-validation-for="BankType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn btn-outline-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@if (ViewBag.notmatch != null)
+{
+<script type="text/javascript">
+
+        window.onload = function () {
+            alert("@ViewBag.notmatch");
+        }
+</script>
+}
+@if (ViewBag.erroroccured != null)
+{
+<script type="text/javascript">
+
+        window.onload = function () {
+            alert("@ViewBag.erroroccured");
+            window.location.href = "@Url.Action("Login", "Pension")";
+        }
+</script>
+}
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

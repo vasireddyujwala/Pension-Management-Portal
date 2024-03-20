@@ -1,0 +1,105 @@
+﻿@model Pension_Management_Portal.Models.PensionerInput
+
+@{ ViewData["Title"] = "PensionPortal"; }
+<style>
+
+
+    body {
+        background: url(https://akm-img-a-in.tosshub.com/businesstoday/images/story/201812/indian-rupee_660_122318061308.jpg?size=1200:675);
+        background-size: cover;
+    }
+
+        .form-login {
+            background: rgba(236,240,241,.90);
+            border-radius: 10px;
+            max-width: 450px;
+            margin: auto;
+            padding: 20px;
+            width: 100%;
+        }
+       h1{
+           color:black;
+           font-size:50px;
+           background:content-box;
+           
+       }
+    </style>
+<h1>Pension Portal</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="PensionPortal" class="form-login">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateOfBirth" class="control-label"></label>
+                <input asp-for="DateOfBirth" class="form-control" />
+                <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PAN" class="control-label"></label>
+                <input asp-for="PAN" class="form-control" />
+                <span asp-validation-for="PAN" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AadhaarNumber" class="control-label"></label>
+                <input asp-for="AadhaarNumber" class="form-control" />
+                <span asp-validation-for="AadhaarNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PensionType" class="control-label"></label>
+                @Html.DropDownList("PensionType",
+                      new SelectList(Enum.GetValues(typeof(Pension_Management_Portal.Models.PensionTypeValue))),
+                      "Select Type", new { @class = "form-control" })
+                <span asp-validation-for="PensionType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Get Pension" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Logout" class="btn btn-primary" role="button">Logout</a>
+
+    
+</div>
+
+@if (ViewBag.notmatch != null)
+{
+<script type="text/javascript">
+
+        window.onload = function () {
+            alert("@ViewBag.notmatch");
+        }
+</script>
+}
+@if (ViewBag.erroroccured != null)
+{
+<script type="text/javascript">
+
+        window.onload = function () {
+            alert("@ViewBag.erroroccured");
+        }
+</script>
+}
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+@if (ViewBag.msg != null)
+{
+<script type="text/javascript">
+
+        window.onload = function () {
+            alert("@ViewBag.msg");
+        }
+</script>
+}
